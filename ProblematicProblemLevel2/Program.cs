@@ -9,7 +9,6 @@ namespace ProblematicProblemLevel2
 {
     class Program
     {
-        private static CustomerService customerService = new CustomerService();
         private static Calculator calculator = new Calculator();
 
         static void Main(string[] args)
@@ -38,7 +37,7 @@ namespace ProblematicProblemLevel2
             DateTime dob = GetUserDob();
             NewLine();
 
-            Customer c = customerService.CreateCustomer(firstName, lastName, age, dob);
+            Customer c = CustomerService.CreateCustomer(firstName, lastName, age, dob);
 
             PassMessage("Wait... how old were they again?");
             c.Age = GetUserAge();
@@ -47,7 +46,7 @@ namespace ProblematicProblemLevel2
             PassMessage("Oh okay cool, I'll notate that.");
             NewLine();
 
-            customerService.PrintCustomerData(c);
+            CustomerService.PrintCustomerData(c);
             NewLine();
 
             PassMessage("Now we will do some calculations!!");
@@ -65,13 +64,16 @@ namespace ProblematicProblemLevel2
             NewLine();
 
             PassMessage($"Addition: {x} + {y} = {calculator.Add(x, y)}");
-            PassMessage($"Subtraction: {x} + {y} = {calculator.Multiply(x, y)}");
-            PassMessage($"Multiplication: {x} + {y} = {calculator.Divide(x, y)}");
-            PassMessage($"Division: {x} + {y} = {calculator.Subtract(x, y)}");
+            PassMessage($"Subtraction: {x} - {y} = {calculator.Subtract(x, y)}");
+            PassMessage($"Multiplication: {x} * {y} = {calculator.Multiply(x, y)}");
+            PassMessage($"Division: {x} / {y} = {calculator.Divide(x, y)}");
             NewLine();
 
-            PassMessage("Isn't math fun!", StatusCode.Success);            
-            
+            PassMessage("Isn't math fun!", StatusCode.Success);
+            NewLine();
+            NewLine();
+
+            //Comment this method out on MacOS
             SithLord.ExecuteOrder66();
             #endregion
         }

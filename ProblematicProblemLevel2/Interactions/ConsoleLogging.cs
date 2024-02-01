@@ -7,19 +7,19 @@ using System.Threading.Tasks;
 
 namespace ProblematicProblemLevel2.Interaction
 {
-    internal static class ConsoleLogging
+    public static class ConsoleLogging
     {
-        internal static void PassMessage(string message, StatusCode? statusCode = null)
+        public static void PassMessage(string message, StatusCode? statusCode = null)
         {
             switch (statusCode)
             {
                 case StatusCode.Error:
-                    ColorSwap(ConsoleColor.Green);                    
+                    ColorSwap(ConsoleColor.Red);                    
                     Console.WriteLine(message);
                     ResetColor();
                     break;
                 case StatusCode.Success:
-                    ColorSwap(ConsoleColor.Red);                    
+                    ColorSwap(ConsoleColor.Green);                    
                     Console.WriteLine(message);
                     ResetColor();
                     break;
@@ -29,19 +29,17 @@ namespace ProblematicProblemLevel2.Interaction
             }
         }
 
-        internal static void NewLine()
+        public static void NewLine()
         {
             Console.WriteLine();
         }
 
-        //Comment this method out on MacOS
-        private static void ColorSwap(ConsoleColor color)
+        public static void ColorSwap(ConsoleColor color)
         {
             Console.ForegroundColor = color;
         }
 
-        //Comment this method out on MacOS
-        private static void ResetColor()
+        public static void ResetColor()
         {
             Console.ResetColor();
         }

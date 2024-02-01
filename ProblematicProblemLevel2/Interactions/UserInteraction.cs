@@ -22,7 +22,7 @@ namespace ProblematicProblemLevel2.Interaction
         {
             int age;
 
-            while (int.TryParse(GetUserInput(), out age))
+            while (!int.TryParse(GetUserInput(), out age))
             {
                 ConsoleLogging.PassMessage("That is not a number\nTry again...", StatusCode.Error);
             }
@@ -34,7 +34,7 @@ namespace ProblematicProblemLevel2.Interaction
         {
             DateTime dob;
 
-            while (DateTime.TryParse(GetUserInput(), out dob))
+            while (!DateTime.TryParse(GetUserInput(), out dob))
             {
                 ConsoleLogging.PassMessage("That is not a valid dob please do dd/mm/yyyy \nTry again...", StatusCode.Error);
             }
@@ -46,7 +46,7 @@ namespace ProblematicProblemLevel2.Interaction
         {
             int num;
 
-            while (int.TryParse(GetUserInput(), out num))
+            while (!int.TryParse(GetUserInput(), out num))
             {
                 ConsoleLogging.PassMessage("That is not a valid number \nTry again...", StatusCode.Error);
             }
